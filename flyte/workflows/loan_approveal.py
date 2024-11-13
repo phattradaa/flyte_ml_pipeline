@@ -128,6 +128,12 @@ def wf(path:str) -> dict:
 if __name__ == "__main__":
     # Execute the workflow by invoking it like a function and passing in
     # the necessary parameters
+    from argparse import ArgumentParser
+    parser = ArgumentParser()
+    parser.add_argument("--path",type=str)
+    
+    args = parser.parse_args()
+    
     print(f"Running workflow ...")
-    result = wf(path='./flyte/flyte/workflows/data/loan_data.csv')
+    result = wf(path=args.name)
     print(result)
